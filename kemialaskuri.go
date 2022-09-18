@@ -4,6 +4,7 @@ package main
 import (
 	"fmt"
 	"kemialaskuri/modes"
+	"kemialaskuri/utils"
 )
 
 // c1, V1 = väkevämpi
@@ -21,19 +22,19 @@ var (
 
 func main() {
 	fmt.Println("Tervetuloa hienoon kemialaskuriin!")
-	for i := 0; i < 40; i++ {
-		fmt.Print("-")
-	} // Cool row of lines
+	utils.DashRow(40, 'y')
 
 	for {
-		fmt.Print("\n\nMinkä laskurin haluat?", modesText, "\n>> ")
+		fmt.Print("\nMinkä laskurin haluat?", modesText, "\n>> ")
 		fmt.Scanln(&syöte)
 
 		switch syöte {
 		case "1":
 			modes.Laimennus_mode()
 		default:
-			fmt.Printf("\nLaskuria numerolla %s ei löydy!\n\n", syöte)
+			fmt.Printf("\nLaskuria numerolla %s ei löydy!\n", syöte)
+			utils.DashRow(40, 'y')
+			fmt.Printf("\n\n")
 		}
 	}
 
