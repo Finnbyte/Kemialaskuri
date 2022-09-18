@@ -11,3 +11,6 @@ This is done by this simple `go` command: `go build .`. However, this assumes *t
 * You have **golang** installed on your computer, with a package manager such as **scoop** or from the website.
     * If you are on GNU/Linux, it's as simple as `sudo apt install go` or similar.
 * You are currently in the directory, with the source codes. This is done by using `cd` command with your terminal.
+
+After all this, you should have a native executable for your operating system, be it *.exe* or just a regular linux binary.
+You can start with it a simple double click, since it uses an infinite loop. You can also just type `./kemialaskuri.exe` on your terminal, because you most likely are already there.
