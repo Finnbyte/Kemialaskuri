@@ -2,8 +2,15 @@ package modes
 
 import (
 	"fmt"
+	"kemialaskuri/utils"
 	"strconv"
 )
+
+var msgs = []string{
+	"\n\nAnna c1 (konsentraatio, josta laimennat) (mol/l): ",
+	"\nAnna c2 (Päämäärä, miten pienen konsetraation haluat) (mol/l):  ",
+	"\nAnna v2 (Kuinka paljon liuosta haluat) (ml/l):  ",
+}
 
 func Laimennus_mode() {
 	var (
@@ -14,12 +21,8 @@ func Laimennus_mode() {
 		v1 string // Kuinka paljon liuosta tarvitaan että voit tehdä laimennuksen
 	)
 
-	fmt.Print("\n\nAnna c1 (konsentraatio, josta laimennat) (mol/l):  ")
-	fmt.Scanln(&c1)
-	fmt.Print("\nAnna c2 (Päämäärä, miten pienen konsetraation haluat) (mol/l):  ")
-	fmt.Scanln(&c2)
-	fmt.Print("\nAnna v2 (Kuinka paljon liuosta haluat) (ml/l):  ")
-	fmt.Scanln(&v2)
+	utils.AskWithMsgs(&c1, &c2, &v2, msgs)
+	// utils.EmptyArgs(c1, c2, v2);
 
 	v1 = strconv.FormatFloat((v2 * c2 / c1), 'f', 1, 64)
 
